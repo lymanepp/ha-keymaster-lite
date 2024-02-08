@@ -7,8 +7,6 @@ from typing import Dict, List, Optional, Tuple
 
 from homeassistant.components.automation import DOMAIN as AUTO_DOMAIN
 from homeassistant.components.input_boolean import DOMAIN as IN_BOOL_DOMAIN
-from homeassistant.components.input_datetime import DOMAIN as IN_DT_DOMAIN
-from homeassistant.components.input_number import DOMAIN as IN_NUM_DOMAIN
 from homeassistant.components.input_text import DOMAIN as IN_TXT_DOMAIN
 from homeassistant.components.script import DOMAIN as SCRIPT_DOMAIN
 from homeassistant.components.template import DOMAIN as TEMPLATE_DOMAIN
@@ -398,8 +396,6 @@ async def async_reload_package_platforms(hass: HomeAssistant) -> bool:
     for domain in [
         AUTO_DOMAIN,
         IN_BOOL_DOMAIN,
-        IN_DT_DOMAIN,
-        IN_NUM_DOMAIN,
         IN_TXT_DOMAIN,
         SCRIPT_DOMAIN,
         TEMPLATE_DOMAIN,
