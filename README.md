@@ -9,3 +9,4 @@ For more information, please see the topic for this package at the [Home Assista
 ## Installation
 
 Please visit this project's [Wiki](https://github.com/lymanepp/ha-keymaster-lite/wiki) for the latest installation and update procedure.
+
