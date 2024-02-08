@@ -1,17 +1,17 @@
-""" Test keymaster services """
+""" Test keymaster_lite services """
 import errno
 from unittest.mock import patch
 
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.keymaster import (
+from custom_components.keymaster_lite import (
     SERVICE_ADD_CODE,
     SERVICE_CLEAR_CODE,
     SERVICE_GENERATE_PACKAGE,
     SERVICE_REFRESH_CODES,
 )
-from custom_components.keymaster.const import DOMAIN
+from custom_components.keymaster_lite.const import DOMAIN
 
 from .const import CONFIG_DATA, CONFIG_DATA_910, CONFIG_DATA_ALT
 
@@ -39,9 +39,9 @@ async def test_generate_package_files(hass, caplog):
 
     # Check for exception when unable to create directory
     with patch(
-        "custom_components.keymaster.services.os", autospec=True
+        "custom_components.keymaster_lite.services.os", autospec=True
     ) as mock_os, patch(
-        "custom_components.keymaster.services.output_to_file_from_template"
+        "custom_components.keymaster_lite.services.output_to_file_from_template"
     ):
         mock_os.path.isdir.return_value = False
         mock_os.makedirs.side_effect = OSError(errno.EEXIST, "error")

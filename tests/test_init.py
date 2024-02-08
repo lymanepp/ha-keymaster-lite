@@ -1,11 +1,11 @@
-""" Test keymaster init """
+""" Test keymaster_lite init """
 from datetime import timedelta
 import logging
 from unittest.mock import patch
 
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.keymaster.const import DOMAIN
+from custom_components.keymaster_lite.const import DOMAIN
 from homeassistant import setup
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.const import EVENT_HOMEASSISTANT_STARTED, STATE_LOCKED

@@ -1,1 +1,1 @@
-""" Tests for keymaster """
+""" Tests for keymaster_lite """

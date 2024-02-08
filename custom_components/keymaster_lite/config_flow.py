@@ -1,4 +1,4 @@
-"""Adds config flow for keymaster."""
+"""Adds config flow for keymaster_lite."""
 import asyncio
 import logging
 import os
@@ -127,7 +127,7 @@ class KeyMasterOptionsFlow(config_entries.OptionsFlow):
 
 
 def _available_parent_locks(hass: HomeAssistant, entry_id: str = None) -> list:
-    """Find other keymaster configurations and list them as posible
+    """Find other keymaster_lite configurations and list them as posible
     parent locks if they are not a child lock already."""
 
     data = ["(none)"]

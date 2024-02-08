@@ -1,4 +1,4 @@
-"""Exceptions for keymaster."""
+"""Exceptions for keymaster_lite."""
 from homeassistant.exceptions import HomeAssistantError
 
 

@@ -1,16 +1,16 @@
-""" Test keymaster config flow """
+""" Test keymaster_lite config flow """
 import logging
 from unittest.mock import patch
 
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.keymaster.config_flow import (
+from custom_components.keymaster_lite.config_flow import (
     KeyMasterFlowHandler,
     _get_entities,
     _get_schema,
 )
-from custom_components.keymaster.const import CONF_PATH, DOMAIN
+from custom_components.keymaster_lite.const import CONF_PATH, DOMAIN
 from homeassistant import config_entries, setup
 from homeassistant.components.lock import DOMAIN as LOCK_DOMAIN
 
@@ -29,7 +29,7 @@ _LOGGER = logging.getLogger(__name__)
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "frontdoor",
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 6,
                 "start_from": 1,
@@ -42,7 +42,7 @@ _LOGGER = logging.getLogger(__name__)
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "frontdoor",
                 "generate_package": True,
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 6,
                 "start_from": 1,
@@ -56,7 +56,7 @@ _LOGGER = logging.getLogger(__name__)
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "frontdoor",
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 6,
                 "start_from": 1,
@@ -69,7 +69,7 @@ _LOGGER = logging.getLogger(__name__)
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "frontdoor",
                 "generate_package": True,
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 6,
                 "start_from": 1,
@@ -82,13 +82,13 @@ _LOGGER = logging.getLogger(__name__)
 async def test_form(input_1, title, data, hass, mock_get_entities):
     """Test we get the form."""
     with patch(
-        "custom_components.keymaster.config_flow.os.path.exists", return_value=True
+        "custom_components.keymaster_lite.config_flow.os.path.exists", return_value=True
     ), patch(
-        "custom_components.keymaster.config_flow.os.path.isfile", return_value=True
+        "custom_components.keymaster_lite.config_flow.os.path.isfile", return_value=True
     ), patch(
-        "custom_components.keymaster.async_setup", return_value=True
+        "custom_components.keymaster_lite.async_setup", return_value=True
     ) as mock_setup, patch(
-        "custom_components.keymaster.async_setup_entry",
+        "custom_components.keymaster_lite.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
 
@@ -122,7 +122,7 @@ async def test_form(input_1, title, data, hass, mock_get_entities):
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "frontdoor",
-                "packages_path": "/packages/keymaster",
+                "packages_path": "/packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 6,
                 "start_from": 1,
@@ -135,7 +135,7 @@ async def test_form(input_1, title, data, hass, mock_get_entities):
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "frontdoor",
                 "generate_package": True,
-                "packages_path": "/packages/keymaster",
+                "packages_path": "/packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 6,
                 "start_from": 1,
@@ -156,12 +156,12 @@ async def test_form_invalid_path(input_1, title, data, mock_get_entities, hass):
     assert result["step_id"] == "user"
 
     with patch(
-        "custom_components.keymaster.config_flow._get_entities",
+        "custom_components.keymaster_lite.config_flow._get_entities",
         return_value="['lock.kwikset_touchpad_electronic_deadbolt_frontdoor']",
     ), patch(
-        "custom_components.keymaster.async_setup", return_value=True
+        "custom_components.keymaster_lite.async_setup", return_value=True
     ) as mock_setup, patch(
-        "custom_components.keymaster.async_setup_entry",
+        "custom_components.keymaster_lite.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
 
@@ -181,7 +181,7 @@ async def test_form_invalid_path(input_1, title, data, mock_get_entities, hass):
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "sidedoor",
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 4,
                 "start_from": 1,
@@ -193,7 +193,7 @@ async def test_form_invalid_path(input_1, title, data, mock_get_entities, hass):
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "sidedoor",
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 4,
                 "start_from": 1,
@@ -225,9 +225,9 @@ async def test_options_flow(input_1, title, data, hass, mock_get_entities):
     assert result["errors"] == {}
 
     with patch(
-        "custom_components.keymaster.async_setup", return_value=True
+        "custom_components.keymaster_lite.async_setup", return_value=True
     ) as mock_setup, patch(
-        "custom_components.keymaster.async_setup_entry",
+        "custom_components.keymaster_lite.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
 
@@ -293,9 +293,9 @@ async def test_options_flow_path_change(input_1, title, data, hass, mock_get_ent
     assert result["errors"] == {}
 
     with patch(
-        "custom_components.keymaster.async_setup", return_value=True
+        "custom_components.keymaster_lite.async_setup", return_value=True
     ) as mock_setup, patch(
-        "custom_components.keymaster.async_setup_entry",
+        "custom_components.keymaster_lite.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
 
@@ -317,7 +317,7 @@ async def test_options_flow_path_change(input_1, title, data, hass, mock_get_ent
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "sidedoor",
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 4,
                 "start_from": 1,
@@ -329,7 +329,7 @@ async def test_options_flow_path_change(input_1, title, data, hass, mock_get_ent
                 "alarm_type_or_access_control_entity_id": "sensor.kwikset_touchpad_electronic_deadbolt_alarm_type_frontdoor",
                 "lock_entity_id": "lock.kwikset_touchpad_electronic_deadbolt_frontdoor",
                 "lockname": "sidedoor",
-                "packages_path": "packages/keymaster",
+                "packages_path": "packages/keymaster_lite",
                 "sensorname": "binary_sensor.frontdoor",
                 "slots": 4,
                 "start_from": 1,
@@ -368,9 +368,9 @@ async def test_options_flow_with_zwavejs(
     assert result["errors"] == {}
 
     with patch(
-        "custom_components.keymaster.async_setup", return_value=True
+        "custom_components.keymaster_lite.async_setup", return_value=True
     ) as mock_setup, patch(
-        "custom_components.keymaster.async_setup_entry",
+        "custom_components.keymaster_lite.async_setup_entry",
         return_value=True,
     ) as mock_setup_entry:
 

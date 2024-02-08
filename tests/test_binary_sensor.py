@@ -1,7 +1,7 @@
-""" Test keymaster binary sensors """
+""" Test keymaster_lite binary sensors """
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.keymaster.const import DOMAIN
+from custom_components.keymaster_lite.const import DOMAIN
 from homeassistant.const import STATE_LOCKED
 
 from .const import CONFIG_DATA_910

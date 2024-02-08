@@ -1,4 +1,4 @@
-""" Fixtures for keymaster tests. """
+""" Fixtures for keymaster_lite tests. """
 import asyncio
 import copy
 import json
@@ -24,8 +24,8 @@ def auto_enable_custom_integrations(enable_custom_integrations):
 @pytest.fixture(autouse=True)
 async def mock_init_child_locks():
     with patch(
-        "custom_components.keymaster.services.init_child_locks", return_value=True
-    ), patch("custom_components.keymaster.init_child_locks"):
+        "custom_components.keymaster_lite.services.init_child_locks", return_value=True
+    ), patch("custom_components.keymaster_lite.init_child_locks"):
         yield
 
 
@@ -33,7 +33,7 @@ async def mock_init_child_locks():
 def mock_get_entities():
     """Mock email data update class values."""
     with patch(
-        "custom_components.keymaster.config_flow._get_entities", autospec=True
+        "custom_components.keymaster_lite.config_flow._get_entities", autospec=True
     ) as mock_get_entities:
 
         mock_get_entities.return_value = [
@@ -93,21 +93,21 @@ def mock_osmakedir():
 @pytest.fixture
 def mock_generate_package_files():
     """Fixture to mock generate package files."""
-    with patch("custom_components.keymaster.generate_package_files", return_value=None):
+    with patch("custom_components.keymaster_lite.generate_package_files", return_value=None):
         yield
 
 
 @pytest.fixture
 def mock_delete_folder():
     """Fixture to mock delete_folder helper function."""
-    with patch("custom_components.keymaster.delete_folder"):
+    with patch("custom_components.keymaster_lite.delete_folder"):
         yield
 
 
 @pytest.fixture
 def mock_delete_lock_and_base_folder():
     """Fixture to mock delete_lock_and_base_folder helper function."""
-    with patch("custom_components.keymaster.delete_lock_and_base_folder"):
+    with patch("custom_components.keymaster_lite.delete_lock_and_base_folder"):
         yield
 
 
@@ -229,7 +229,7 @@ async def mock_zwavejs_get_usercodes():
         {"code_slot": 14, "usercode": "", "in_use": False},
     ]
     with patch(
-        "custom_components.keymaster.get_usercodes", return_value=slot_data
+        "custom_components.keymaster_lite.get_usercodes", return_value=slot_data
     ) as mock_usercodes:
         yield mock_usercodes
 
@@ -238,7 +238,7 @@ async def mock_zwavejs_get_usercodes():
 async def mock_using_zwavejs():
     """Fixture to mock using_ozw in helpers"""
     with patch(
-        "custom_components.keymaster.binary_sensor.async_using_zwave_js",
+        "custom_components.keymaster_lite.binary_sensor.async_using_zwave_js",
         return_value=True,
     ) as mock_using_zwavejs_helpers:
         yield mock_using_zwavejs_helpers

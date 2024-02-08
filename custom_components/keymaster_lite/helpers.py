@@ -1,4 +1,4 @@
-"""Helpers for keymaster."""
+"""Helpers for keymaster_lite."""
 import asyncio
 from datetime import timedelta
 import logging
@@ -112,7 +112,7 @@ def get_code_slots_list(data: Dict[str, int]) -> List[int]:
 async def generate_keymaster_locks(
     hass: HomeAssistant, config_entry: ConfigEntry
 ) -> Tuple[KeymasterLock, List[KeymasterLock]]:
-    """Generate primary and child keymaster locks from config entry."""
+    """Generate primary and child keymaster_lite locks from config entry."""
     ent_reg = async_get_entity_registry(hass)
     primary_lock = KeymasterLock(
         config_entry.data[CONF_LOCK_NAME],
@@ -184,7 +184,7 @@ def output_to_file_from_template(
 
 
 def delete_lock_and_base_folder(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
-    """Delete packages folder for lock and base keymaster folder if empty."""
+    """Delete packages folder for lock and base keymaster_lite folder if empty."""
     base_path = os.path.join(hass.config.path(), config_entry.data[CONF_PATH])
     lock: KeymasterLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
 

@@ -1,4 +1,4 @@
-"""Services for keymaster."""
+"""Services for keymaster_lite."""
 import logging
 import os
 from typing import Any, Dict, Mapping
@@ -88,7 +88,7 @@ async def refresh_codes(
             if config_entry.data[CONF_LOCK_ENTITY_ID] == entity_id
         )
     except StopIteration:
-        _LOGGER.error("Entity ID %s not set up in keymaster", entity_id)
+        _LOGGER.error("Entity ID %s not set up in keymaster_lite", entity_id)
         return
 
     ent_reg = async_get_entity_registry(hass)
@@ -274,7 +274,7 @@ def generate_package_files(hass: HomeAssistant, name: str) -> None:
         replacements["TEMPLATENUM"] = str(x)
 
         for in_f, out_f, write_mode in (
-            (f"keymaster{child_file}.yaml", f"{lockname}_keymaster_{x}.yaml", "w+"),
+            (f"keymaster_lite{child_file}.yaml", f"{lockname}_keymaster_{x}.yaml", "w+"),
             (f"lovelace{child_file}.code", f"{lockname}_lovelace", "a"),
         ):
             output_to_file_from_template(

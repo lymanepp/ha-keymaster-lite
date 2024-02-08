@@ -1,4 +1,4 @@
-""" Test keymaster services """
+""" Test keymaster_lite services """
 from datetime import datetime
 import json
 import logging
@@ -12,7 +12,7 @@ from homeassistant.setup import async_setup_component
 from homeassistant.util.yaml.loader import load_yaml
 
 _LOGGER = logging.getLogger(__name__)
-FILE_PATH = f"{os.path.dirname(__file__)}/../custom_components/keymaster/"
+FILE_PATH = f"{os.path.dirname(__file__)}/../custom_components/keymaster_lite/"
 
 
 async def test_template_sensors(hass: HomeAssistant):
@@ -26,7 +26,7 @@ async def test_template_sensors(hass: HomeAssistant):
 
     keymaster_file = json.loads(
         json.dumps(
-            await hass.async_add_executor_job(load_yaml, f"{FILE_PATH}/keymaster.yaml")
+            await hass.async_add_executor_job(load_yaml, f"{FILE_PATH}/keymaster_lite.yaml")
         )
         .replace("LOCKNAME", "lockname")
         .replace("TEMPLATENUM", "templatenum")
@@ -42,7 +42,7 @@ async def test_template_sensors(hass: HomeAssistant):
         await hass.async_start()
         await hass.async_block_till_done()
 
-        # Start with default state of UI when keymaster is first
+        # Start with default state of UI when keymaster_lite is first
         # set up. Nothing has been enabled yet.
 
         hass.states.async_set(enabled_entity, STATE_OFF)

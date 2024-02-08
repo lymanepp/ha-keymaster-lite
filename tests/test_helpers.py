@@ -1,10 +1,10 @@
-""" Test keymaster helpers """
+""" Test keymaster_lite helpers """
 from unittest.mock import patch
 
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from zwave_js_server.event import Event
 
-from custom_components.keymaster.const import (
+from custom_components.keymaster_lite.const import (
     ATTR_ACTION_TEXT,
     ATTR_CODE_SLOT,
     ATTR_CODE_SLOT_NAME,
@@ -12,7 +12,7 @@ from custom_components.keymaster.const import (
     DOMAIN,
     EVENT_KEYMASTER_LOCK_STATE_CHANGED,
 )
-from custom_components.keymaster.helpers import delete_lock_and_base_folder
+from custom_components.keymaster_lite.helpers import delete_lock_and_base_folder
 from homeassistant.const import (
     ATTR_STATE,
     EVENT_HOMEASSISTANT_STARTED,
