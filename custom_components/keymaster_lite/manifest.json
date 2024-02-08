@@ -1,8 +1,6 @@
 {
   "domain": "keymaster_lite",
   "name": "keymaster lite",
-  "documentation": "https://github.com/lymanepp/ha-keymaster-lite",
-  "dependencies": [],
   "after_dependencies": [
     "automation",
     "input_boolean",
@@ -16,8 +14,10 @@
   ],
   "codeowners": ["@lymanepp"],
   "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/lymanepp/ha-keymaster-lite",
+  "iot_class": "local_polling",
   "issue_tracker": "https://github.com/lymanepp/ha-keymaster-lite/issues",
   "requirements": [],
-  "iot_class": "local_polling",
   "version": "v0.0.0"
 }
