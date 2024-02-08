@@ -1,0 +1,40 @@
+default_config:
+
+logger:
+  default: info
+  logs:
+    custom_components.keymaster_lite: debug
+
+# If you need to debug uncomment the line below (doc: https://www.home-assistant.io/integrations/debugpy/)
+# debugpy:
+
+# https://github.com/twrecked/hass-virtual
+virtual:
+
+lock:
+  - platform: virtual
+    name: Front Door
+    initial_availability: true
+    initial_value: locked
+    persistent: true
+
+  - platform: virtual
+    name: Back Door
+    initial_availability: true
+    initial_value: unlocked
+    persistent: true
+
+binary_sensor:
+  - platform: virtual
+    name: Front Door
+    class: opening
+    initial_availability: true
+    initial_value: "off"
+    persistent: true
+
+  - platform: virtual
+    name: Back Door
+    class: opening
+    initial_availability: true
+    initial_value: "off"
+    persistent: true
