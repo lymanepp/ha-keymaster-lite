@@ -1,7 +1,7 @@
 {
-  "domain": "keymaster",
-  "name": "keymaster",
-  "documentation": "https://github.com/FutureTense/keymaster",
+  "domain": "keymaster_lite",
+  "name": "keymaster-lite",
+  "documentation": "https://github.com/lymanepp/ha-keymaster-lite",
   "dependencies": [],
   "after_dependencies": [
     "automation",
@@ -14,9 +14,9 @@
     "zwave",
     "zwave_js"
   ],
-  "codeowners": ["@FutureTense", "@firstof9", "@raman325"],
+  "codeowners": ["@lymanepp"],
   "config_flow": true,
-  "issue_tracker": "https://github.com/FutureTense/keymaster/issues",
+  "issue_tracker": "https://github.com/lymanepp/ha-keymaster-lite/issues",
   "requirements": [],
   "iot_class": "local_polling",
   "version": "v0.0.0"

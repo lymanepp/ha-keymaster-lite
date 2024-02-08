@@ -3,7 +3,7 @@ from homeassistant.const import STATE_LOCKED, STATE_UNLOCKED
 
 DOMAIN = "keymaster"
 VERSION = "v0.0.0"  # this will be automatically updated as part of the release workflow
-ISSUE_URL = "https://github.com/FutureTense/keymaster"
+ISSUE_URL = "https://github.com/lymanepp/ha-keymaster-lite"
 PLATFORMS = ["binary_sensor", "sensor"]
 INTEGRATION = "zwave_integration"
 

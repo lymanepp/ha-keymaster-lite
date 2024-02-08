@@ -26,10 +26,10 @@ categories:
     labels:
       - "code-quality"
 template: |
-  [![Downloads for this release](https://img.shields.io/github/downloads/FutureTense/keymaster/v$RESOLVED_VERSION/total.svg)](https://github.com/FutureTense/keymaster/releases/v$RESOLVED_VERSION)
+  [![Downloads for this release](https://img.shields.io/github/downloads/lymanepp/ha-keymaster-lite/v$RESOLVED_VERSION/total.svg)](https://github.com/lymanepp/ha-keymaster-lite/releases/v$RESOLVED_VERSION)
 
   $CHANGES
 
   ## Links
-  - [Wiki](https://github.com/FutureTense/keymaster/wiki)
-  - [Submit bugs/feature requests](https://github.com/FutureTense/keymaster/issues)
+  - [Wiki](https://github.com/lymanepp/ha-keymaster-lite/wiki)
+  - [Submit bugs/feature requests](https://github.com/lymanepp/ha-keymaster-lite/issues)
